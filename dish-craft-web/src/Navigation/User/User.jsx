@@ -4,7 +4,7 @@ const User = () => {
 	return (
 		<div className={s.userBlock}>
 			<div className={s.ava}>
-				<img src='https://i.pinimg.com/1200x/2e/2e/21/2e2e2125ee53807c2d77b34773f84b5c.jpg' />
+				<img src='https://i.pinimg.com/1200x/2e/2e/21/2e2e2125ee53807c2d77b34773f84b5c.jpg' alt='Пользователь' />
 			</div>
 			<div className={s.name}>User_1</div>
 		</div>
