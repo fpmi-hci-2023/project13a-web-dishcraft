@@ -1,0 +1,32 @@
+.recipeInfo {
+	padding: 10px 5px;
+
+	border: solid 3px #A7BC40;
+	border-left: none;
+}
+
+.title {
+	color: #000000;
+	font-size: 20px;
+	font-weight: 400;
+	font-family: 'Fira Sans Extra Condensed';
+
+	text-align: center;
+}
+
+.features {
+	margin: 5px auto;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	row-gap: 5px;
+}
+
+.description {
+	color: #000000;
+	font-size: 14px;
+	font-weight: 300;
+	font-family: 'Fira Sans Extra Condensed';
+
+	text-align: justify;
+}
