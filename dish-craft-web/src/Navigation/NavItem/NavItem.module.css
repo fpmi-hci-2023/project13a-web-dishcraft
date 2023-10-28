@@ -1,0 +1,21 @@
+.navItem {
+	display: flex;
+	align-items: center;
+}
+
+.link {
+	padding: 12px 0px;
+	width: 100%;
+
+	color: #FFFFFF;
+	font-size: 20px;
+	font-weight: 400;
+	font-family: 'Fira Sans Extra Condensed';
+
+	text-decoration: none;
+	text-align: center;
+}
+
+.link:hover {
+	background-color: #262323;
+}

@@ -1,0 +1,12 @@
+.recipeBlock {
+	display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.img {
+	height: 250px;
+	
+	background-image: url("../../../img/recipe-photo.jpg");
+	background-size: cover;
+	background-position: center;
+}
