@@ -7,6 +7,7 @@
 калории, время приготовления и другое. Каждый пользователь может создать свой рецепт или сохранить понравившийся у себя в избранных.
 
 # Deployment 
+[DishCraft Web Application](https://project13a-web-dishcraft-ae3pyy2q2-maryiv76s-projects.vercel.app/)
 
 # Contribution
 **Авторы проекта:** Быстрова Вероника, Иванова Мария, Шинкевич Дарья 
