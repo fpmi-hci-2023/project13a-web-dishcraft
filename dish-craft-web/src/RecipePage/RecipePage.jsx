@@ -1,6 +1,7 @@
 import s from './RecipePage.module.css';
 import RPCaloriesBlock from './RPCaloriesBlock/RPCaloriesBlock';
 import RPIngredients from './RPIngredients/RPIngredients';
+import RPPhotoRecipe from './RPPhotoRecipe/RPPhotoRecipe';
 import RPRecipePhotoInfo from './RPRecipePhotoInfo/RPRecipePhotoInfo';
 
 const RecipePage = () => {
@@ -33,11 +34,19 @@ const RecipePage = () => {
 		{id: 6, photoUrl: '/img/ingredient6.jpg', photoAlt: 'Голубика', name: 'Голубика', value1: '1,5', unit1: 'ст. л.', value2: '45', unit2: 'г'}
 	]
 
+	let steps = [
+		{id: 1, photoUrl: '/img/step1.jpg', title: 'Шаг 1', description: 'Отмерьте необходимое количество продуктов. Ягоды и листики мяты для подачи вымойте, обсушите на бумажных полотенцах, у клубники удалите чашелистики. Нарежьте клубнику кусочками произвольного размера. Приготовьте 2 стеклянные баночки с крышками.'},
+		{id: 2, photoUrl: '/img/step2.jpg', title: 'Шаг 2', description: 'Размочите семена чиа. В миске соедините молоко и мед, всыпьте семена чиа, хорошо перемешайте и поставьте в холодильник на 6-8 часов.'},
+		{id: 3, photoUrl: '/img/step3.jpg', title: 'Шаг 3', description: 'Соберите десерт. В стеклянную баночку слоем выложите нарезанную клубнику. Далее положите часть мусса. Повторяйте процедуру до полного наполнения емкости. Ягоды чередуйте между собой. Верхний слой должен быть из ягод.'},
+		{id: 4, photoUrl: '/img/step4.jpg', title: 'Шаг 4', description: 'Перед подачей украсьте мусс с семенами чиа веточкой свежей мяты.'},
+	]
+
 	return (
 		<div className={s.content}>
 			<RPRecipePhotoInfo dishName='Мусс с семенами чиа' description={description} recipePhotoUrl='/img/recipe-photo.jpg' readyTime='6 ч 15 мин' cookingTime='15 мин' complexity='Просто' author={author} rating={rating} />
 			<RPCaloriesBlock attributes={attributes} />
 			<RPIngredients numPortions='2' ingredients={ingredients} />
+			<RPPhotoRecipe steps={steps} />
 		</div>
 	);
 }
