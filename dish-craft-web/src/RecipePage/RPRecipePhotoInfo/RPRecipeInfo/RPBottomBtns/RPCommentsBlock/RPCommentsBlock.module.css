@@ -1,0 +1,24 @@
+.commentsBlock {
+	display: flex;
+	align-items: center;
+
+	cursor: pointer;
+}
+
+.commentsLabel {
+	color: #000000;
+	font-size: 16px;
+	font-weight: 300;
+	font-family: 'Fira Sans Extra Condensed';
+}
+
+.commentsLabel:hover {
+	text-decoration: underline;
+}
+
+.icon {
+	margin-left: 5px;
+
+	width: 32px;
+	height: 32px;
+}

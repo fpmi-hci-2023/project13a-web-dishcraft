@@ -17,8 +17,8 @@ const Navigation = () => {
 	return (
 		<div className={s.navigation}>
 			<div className={s.title}>Мастерская Блюд</div>
-			<User />
-			<BtnCreateRecipe />
+			<User userName='User_1' photoUrl='https://i.pinimg.com/1200x/2e/2e/21/2e2e2125ee53807c2d77b34773f84b5c.jpg' />
+			<BtnCreateRecipe name='Создать Рецепт' link='/create-recipe' />
 			<div className={s.nav}>
 				{navElements}
 			</div>

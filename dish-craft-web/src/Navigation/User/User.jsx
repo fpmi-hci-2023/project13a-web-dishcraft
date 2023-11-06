@@ -1,12 +1,12 @@
 import s from './User.module.css';
 
-const User = () => {
+const User = (props) => {
 	return (
 		<div className={s.userBlock}>
 			<div className={s.ava}>
-				<img src='https://i.pinimg.com/1200x/2e/2e/21/2e2e2125ee53807c2d77b34773f84b5c.jpg' alt='Пользователь' />
+				<img src={props.photoUrl} alt='Пользователь' />
 			</div>
-			<div className={s.name}>User_1</div>
+			<div className={s.name}>{props.userName}</div>
 		</div>
 	);
 }

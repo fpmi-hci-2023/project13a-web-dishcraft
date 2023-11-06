@@ -1,6 +1,10 @@
 .navigation {
 	grid-area: n;
 	background-color: #454342;
+
+	height: 100vh;
+	position: sticky;
+  top: 0;
 }
 
 .title {

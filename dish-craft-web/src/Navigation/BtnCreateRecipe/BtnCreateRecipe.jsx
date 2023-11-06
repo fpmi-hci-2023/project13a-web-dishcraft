@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import s from './BtnCreateRecipe.module.css';
 
-const BtnCreateRecipe = () => {
+const BtnCreateRecipe = (props) => {
 	return (
 		<div className={s.btnBlock}>
-			<NavLink className={s.btn} to='/create-recipe'>Создать Рецепт</NavLink>
+			<NavLink className={s.btn} to={props.link}>{props.name}</NavLink>
 		</div>
 	);
 }

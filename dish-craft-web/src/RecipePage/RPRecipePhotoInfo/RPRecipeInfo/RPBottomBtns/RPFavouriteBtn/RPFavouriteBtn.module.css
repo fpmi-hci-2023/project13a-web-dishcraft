@@ -1,0 +1,18 @@
+.favouriteBtn {
+	padding: 6px 23px;
+
+	border: solid 3px #A7BC40;
+	border-radius: 5px;
+
+	color: #000000;
+	font-size: 18px;
+	font-weight: 400;
+	font-family: 'Fira Sans Extra Condensed';
+
+	cursor: pointer;
+}
+
+.favouriteBtn:hover {
+	color: #ffffff;
+	background-color: #A7BC40;
+}
