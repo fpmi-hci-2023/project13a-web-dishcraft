@@ -1,0 +1,21 @@
+.block {
+	display: flex;
+}
+
+.title {
+	margin-right: 20px;
+
+	color: #000000;
+	font-size: 26px;
+	font-weight: 400;
+	font-family: 'Fira Sans Extra Condensed';
+}
+
+.numPortions {
+	margin: 0px 11px;
+
+	color: #000000;
+	font-size: 26px;
+	font-weight: 500;
+	font-family: 'Fira Sans Extra Condensed';
+}
