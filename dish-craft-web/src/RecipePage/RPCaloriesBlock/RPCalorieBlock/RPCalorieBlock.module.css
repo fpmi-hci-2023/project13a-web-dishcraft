@@ -1,0 +1,52 @@
+.greenBlock {
+	position: relative;
+
+	margin-right: 30px;
+	padding-top: 8px;
+
+	width: 150px;
+	height: 125px;
+
+	border-radius: 15px;
+	background-color: #A7BC40;
+
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: 400;
+	font-family: 'Fira Sans Extra Condensed';
+
+	text-align: center;
+}
+
+.greenBlock:last-child {
+	margin-right: 0px;
+}
+
+.whiteBlock {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	position: absolute;
+	right: 10px;
+	left: 10px;
+	top: 40px;
+	bottom: 10px;
+
+	border-radius: 10px;
+	background-color: #ffffff;
+}
+
+.value {
+	color: #000000;
+	font-size: 22px;
+	font-weight: 500;
+	font-family: 'Fira Sans Extra Condensed';
+}
+
+.unit {
+	color: #000000;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: 'Fira Sans Extra Condensed';
+}
