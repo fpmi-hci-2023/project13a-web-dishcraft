@@ -1,0 +1,49 @@
+.block {
+	position: relative;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.block input {
+	margin: 0px 15px 0px 0px;
+	position: relative;
+
+	width: 30px;
+	height: 30px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	-webkit-appearance: none;
+	appearance: none;
+	overflow: hidden;
+}
+
+.block input:first-child {
+	margin-right: 0px;
+}
+
+
+.block input::before {
+	content: "";
+
+	width: 30px;
+	height: 30px;
+
+	position: absolute;
+
+	background-image: url("../../../../public/img/white-star.png");
+	background-size: cover;
+	background-position: center;
+
+	transition: 0.5s;
+}
+
+.block input:hover~input::before,
+.block input:hover::before,
+.block input:checked~input::before,
+.block input:checked::before {
+	background-image: url("../../../../public/img/yellow-star.png");
+}
+

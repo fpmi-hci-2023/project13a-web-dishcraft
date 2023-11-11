@@ -1,0 +1,85 @@
+.block {
+	margin-top: 30px;
+
+	display: flex;
+	justify-content: center;
+}
+
+.innerBlock {
+	padding: 15px 30px 30px;
+
+	width: fit-content;
+
+	border: solid 3px #D79D5A;
+	border-radius: 20px;
+}
+
+.title {
+	color: #000000;
+	font-size: 30px;
+	font-weight: 500;
+	font-family: 'Fira Sans Extra Condensed';
+
+	text-align: center;
+}
+
+.saveBlock {
+	margin-top: 15px;
+
+	display: flex;
+	align-items: center;
+}
+
+.save {
+	color: #000000;
+	font-size: 24px;
+	font-weight: 300;
+	font-family: 'Fira Sans Extra Condensed';
+}
+
+.saveBtn {
+	margin-left: 30px;
+	padding: 6px 23px;
+
+	width: fit-content;
+
+	border: solid 3px #A7BC40;
+	border-radius: 5px;
+
+	color: #000000;
+	font-size: 18px;
+	font-weight: 400;
+	font-family: 'Fira Sans Extra Condensed';
+
+	cursor: pointer;
+}
+
+.saveBtn:hover {
+	color: #ffffff;
+	background-color: #A7BC40;
+}
+
+.rateBlock {
+	margin-top: 15px;
+
+	display: flex;
+	align-items: center;
+}
+
+.rate {
+	margin-right: 15px;
+
+	color: #000000;
+	font-size: 24px;
+	font-weight: 300;
+	font-family: 'Fira Sans Extra Condensed';
+}
+
+.ratingValues {
+	margin-left: 15px;
+
+	color: #000000;
+	font-size: 24px;
+	font-weight: 300;
+	font-family: 'Fira Sans Extra Condensed';
+}
