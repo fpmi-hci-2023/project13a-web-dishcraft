@@ -1,5 +1,6 @@
 import s from './RecipePage.module.css';
 import RPCaloriesBlock from './RPCaloriesBlock/RPCaloriesBlock';
+import RPCommentsBlock from './RPCommentsBlock/RPCommentsBlock';
 import RPFeedback from './RPFeedback/RPFeedback';
 import RPIngredients from './RPIngredients/RPIngredients';
 import RPPhotoRecipe from './RPPhotoRecipe/RPPhotoRecipe';
@@ -49,6 +50,7 @@ const RecipePage = () => {
 			<RPIngredients numPortions='2' ingredients={ingredients} />
 			<RPPhotoRecipe steps={steps} />
 			<RPFeedback ratingValue='5' numRatings='3' />
+			<RPCommentsBlock authorPhotoUrl='https://i.pinimg.com/1200x/2e/2e/21/2e2e2125ee53807c2d77b34773f84b5c.jpg' />
 		</div>
 	);
 }
