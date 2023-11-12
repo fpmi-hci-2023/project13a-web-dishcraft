@@ -61,6 +61,7 @@
 	font-family: 'Fira Sans Extra Condensed';
 
 	resize: none;
+	cursor: pointer;
 }
 
 .textarea:empty::before {

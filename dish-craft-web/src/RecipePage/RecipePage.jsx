@@ -43,6 +43,13 @@ const RecipePage = () => {
 		{ id: 4, photoUrl: '/img/step4.jpg', title: 'Шаг 4', description: 'Перед подачей украсьте мусс с семенами чиа веточкой свежей мяты.' },
 	]
 
+	let comments = [
+		{ id: 1, authorPhotoUrl: 'https://cdn-icons-png.flaticon.com/512/145/145862.png', author: 'Галина Белая', date: 'Вторник, 25 Октября 2022 г. 15:43', content: 'Очень понравился рецепт, спасибо! Делала на миндальном молоке, получилось отлично. Сахара использовала меньше, чем указано, но, как тут уже писали, это на любителя' },
+		{ id: 2, authorPhotoUrl: 'https://cdn-icons-png.flaticon.com/512/145/145862.png', author: 'Галина Белая', date: 'Вторник, 25 Октября 2022 г. 15:43', content: 'Очень понравился рецепт, спасибо! Делала на миндальном молоке, получилось отлично. Сахара использовала меньше, чем указано, но, как тут уже писали, это на любителя' },
+		{ id: 3, authorPhotoUrl: 'https://cdn-icons-png.flaticon.com/512/145/145862.png', author: 'Галина Белая', date: 'Вторник, 25 Октября 2022 г. 15:43', content: 'Очень понравился рецепт, спасибо! Делала на миндальном молоке, получилось отлично. Сахара использовала меньше, чем указано, но, как тут уже писали, это на любителя' },
+		{ id: 4, authorPhotoUrl: 'https://cdn-icons-png.flaticon.com/512/145/145862.png', author: 'Галина Белая', date: 'Вторник, 25 Октября 2022 г. 15:43', content: 'Очень понравился рецепт, спасибо! Делала на миндальном молоке, получилось отлично. Сахара использовала меньше, чем указано, но, как тут уже писали, это на любителя' }
+	]
+
 	return (
 		<div className={s.content}>
 			<RPRecipePhotoInfo dishName='Мусс с семенами чиа' description={description} recipePhotoUrl='/img/recipe-photo.jpg' readyTime='6 ч 15 мин' cookingTime='15 мин' complexity='Просто' author={author} rating={rating} />
@@ -50,7 +57,7 @@ const RecipePage = () => {
 			<RPIngredients numPortions='2' ingredients={ingredients} />
 			<RPPhotoRecipe steps={steps} />
 			<RPFeedback ratingValue='5' numRatings='3' />
-			<RPCommentsBlock authorPhotoUrl='https://i.pinimg.com/1200x/2e/2e/21/2e2e2125ee53807c2d77b34773f84b5c.jpg' />
+			<RPCommentsBlock authorPhotoUrl='https://i.pinimg.com/1200x/2e/2e/21/2e2e2125ee53807c2d77b34773f84b5c.jpg' comments={comments} />
 		</div>
 	);
 }

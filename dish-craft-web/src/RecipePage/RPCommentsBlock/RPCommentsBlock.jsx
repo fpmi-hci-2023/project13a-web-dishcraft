@@ -1,6 +1,9 @@
+import RPComment from './RPComment/RPComment';
 import s from './RPCommentsBlock.module.css';
 
 const RPCommentsBlock = (props) => {
+
+	let commentsElements = props.comments.map(c => <RPComment authorPhotoUrl={c.authorPhotoUrl} author={c.author} date={c.date} content={c.content} key={c.id} />);
 
 	return (
 		<div className={s.block}>
@@ -12,6 +15,10 @@ const RPCommentsBlock = (props) => {
 				<div className={s.inputBlock}>
 					<span className={s.textarea} contentEditable='true'></span>
 				</div>
+			</div>
+
+			<div>
+				{commentsElements}
 			</div>
 		</div>
 	);
