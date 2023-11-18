@@ -1,25 +1,22 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Recipes from './Recipes/Recipes';
-import Navigation from './Navigation/Navigation';
-import SearchEngine from './SearchEngine/SearchEngine';
-import RecipePage from './RecipePage/RecipePage';
+import Recipes from './Content/Recipes/Recipes';
+import RecipePage from './Content/RecipePage/RecipePage';
+import Content from './Content/Content';
+import Auth from './Auth/Auth';
 
 const App = () => {
 	return (
 		<BrowserRouter>
-			<div className='app-wrapper'>
-				<Navigation />
-				<SearchEngine />
+			<Routes>
+				<Route path='/auth' element={<Auth />} />
 
-				<div className='app-wrapper-content'>
-					<Routes>
-						<Route path='/' element={<Recipes />} />
-						<Route path='/recipes' element={<Recipes />} />
-						<Route path='/current-recipe' element={<RecipePage />} />
-					</Routes>
-				</div>
-			</div>
+				<Route path='/' element={<Content />} >
+					<Route path='/' element={<Recipes />} />
+					<Route path='/recipes' element={<Recipes />} />
+					<Route path='/current-recipe' element={<RecipePage />} />
+				</Route>
+			</Routes>
 		</BrowserRouter>
 	);
 }

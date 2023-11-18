@@ -33,7 +33,7 @@
 
 	position: absolute;
 
-	background-image: url("../../../../public/img/white-star.png");
+	background-image: url("../../../../../public/img/white-star.png");
 	background-size: cover;
 	background-position: center;
 
@@ -44,6 +44,6 @@
 .block input:hover::before,
 .block input:checked~input::before,
 .block input:checked::before {
-	background-image: url("../../../../public/img/yellow-star.png");
+	background-image: url("../../../../../public/img/yellow-star.png");
 }
 
