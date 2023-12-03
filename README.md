@@ -10,4 +10,4 @@
 [DishCraft Web Application](https://project13a-web-dishcraft.vercel.app/)
 
 # Contribution
-**Авторы проекта:** Быстрова Вероника, Иванова Мария, Шинкевич Дарья 
+**Авторы проекта:** Быстрова Вероника, Иванова Мария, Шинкевич Дарья  
