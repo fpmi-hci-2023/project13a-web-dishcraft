@@ -6,7 +6,6 @@ import { setCurrentRecipeIdActionCreator } from '../../../Data/state'
 const Recipe = (props) => {
 
 	const setCurrentRecipeId = () => {
-		debugger;
 		props.dispatch(setCurrentRecipeIdActionCreator(props.recipeId));
 	}
 

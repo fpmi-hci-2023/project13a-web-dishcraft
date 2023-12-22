@@ -20,14 +20,11 @@ class Recipes extends React.Component {
 					promises.push(promise);
 				});
 
-				debugger;
 				Promise.all(promises)
 					.then(() => {
 						this.props.dispatch(setRecipesActionCreator(recipes))
 					});
-				debugger;
 			});
-		debugger;
 	}
 
 	render() {

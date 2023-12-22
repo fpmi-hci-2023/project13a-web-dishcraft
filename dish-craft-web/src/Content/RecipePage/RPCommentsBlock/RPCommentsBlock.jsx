@@ -3,7 +3,7 @@ import s from './RPCommentsBlock.module.css';
 
 const RPCommentsBlock = (props) => {
 
-	let commentsElements = props.comments.map(c => <RPComment authorPhotoUrl={c.authorPhotoUrl} author={c.author} date={c.date} content={c.content} key={c.id} />);
+	let commentsElements = props.comments.map(c => <RPComment authorPhotoUrl={c.authorPhotoUrl} author={c.user.username} date={c.commentDate} content={c.commentText} key={c.commentId} />);
 
 	return (
 		<div className={s.block}>

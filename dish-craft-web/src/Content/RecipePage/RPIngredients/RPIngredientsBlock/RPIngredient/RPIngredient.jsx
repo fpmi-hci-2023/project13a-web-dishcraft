@@ -8,9 +8,9 @@ const RPIngredient = (props) => {
 				<img src={props.photoUrl} alt={props.photoAlt} />
 			</div>
 			<div className={s.name}>{props.name}</div>
-			<div className={s.values}>
+			{/* <div className={s.values}>
 				<div>{props.value1} {props.unit1} = {props.value2} {props.unit2}</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }

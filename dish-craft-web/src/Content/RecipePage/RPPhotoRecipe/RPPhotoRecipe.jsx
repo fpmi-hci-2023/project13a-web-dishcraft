@@ -3,7 +3,7 @@ import RPRecipeStep from './RPRecipeStep/RPRecipeStep';
 
 const RPPhotoRecipe = (props) => {
 
-	let ingredientsElements = props.steps.map(s => <RPRecipeStep photoUrl={s.photoUrl} title={s.title} description={s.description} key={s.id} />);
+	let ingredientsElements = props.steps.map(s => <RPRecipeStep photoUrl={"https://dish-craft.onrender.com/recipes/" + s.recipe.recipeId + "/steps/" + s.stepId + "/image"} title={"Шаг " + s.numberInRecipe} description={s.stepDescription} key={s.stepId} />);
 
 	return (
 		<div className={s.block}>

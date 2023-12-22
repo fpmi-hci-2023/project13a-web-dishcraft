@@ -1,6 +1,10 @@
 const SET_RECIPES = 'SET-RECIPES';
 const SET_CURRENT_RECIPE_ID = 'SET-CURRENT-RECIPE-ID';
 const SET_CURRENT_RECIPE = 'SET-CURRENT-RECIPE';
+const SET_NUTRITIONAL_VALUE = 'SET-NUTRITIONAL-VALUE';
+const SET_PRODUCTS = 'SET-PRODUCTS';
+const SET_STEPS = 'SET-STEPS';
+const SET_COMMENTS = 'SET-COMMENTS';
 
 let store = {
 
@@ -39,7 +43,16 @@ let store = {
 					value: 0,
 					numRatings: 0
 				}
-			}
+			},
+			nutritionalValue: {
+				"calories": 0,
+				"proteins": 0,
+				"fats": 0,
+				"carbohydrates": 0
+			},
+			products: [],
+			steps: [],
+			comments: []
 		}
 
 	},
@@ -63,6 +76,26 @@ let store = {
 		this._callSubscriber(this._state);
 	},
 
+	_setNutritionalValue(nutritionalValue) {
+		this._state.currentRecipePage.nutritionalValue = nutritionalValue
+		this._callSubscriber(this._state);
+	},
+
+	_setProducts(products) {
+		this._state.currentRecipePage.products = products
+		this._callSubscriber(this._state);
+	},
+
+	_setSteps(steps) {
+		this._state.currentRecipePage.steps = steps
+		this._callSubscriber(this._state);
+	},
+
+	_setComments(comments) {
+		this._state.currentRecipePage.comments = comments
+		this._callSubscriber(this._state);
+	},
+
 	getState() {
 		return this._state;
 	},
@@ -76,11 +109,23 @@ let store = {
 			this._setRecipes(action.recipes)
 
 		} else if (action.type === SET_CURRENT_RECIPE_ID) {
-			debugger;
 			this._setCurrentRecipeId(action.recipeId)
 
 		} else if (action.type === SET_CURRENT_RECIPE) {
 			this._setCurrentRecipe(action.recipe)
+
+		} else if (action.type === SET_NUTRITIONAL_VALUE) {
+			this._setNutritionalValue(action.nutritionalValue)
+
+		} else if (action.type === SET_PRODUCTS) {
+			this._setProducts(action.products)
+
+		} else if (action.type === SET_STEPS) {
+			this._setSteps(action.steps)
+
+		} else if (action.type === SET_COMMENTS) {
+			this._setComments(action.comments)
+
 		}
 	}
 }
@@ -93,6 +138,18 @@ export const setCurrentRecipeIdActionCreator = (recipeId) =>
 
 export const setCurrentRecipeActionCreator = (recipe) =>
 	({ type: SET_CURRENT_RECIPE, recipe: recipe })
+
+export const setNutritionalValueActionCreator = (nutritionalValue) =>
+	({ type: SET_NUTRITIONAL_VALUE, nutritionalValue: nutritionalValue })
+
+export const setProductsActionCreator = (products) =>
+	({ type: SET_PRODUCTS, products: products })
+
+export const setStepsActionCreator = (steps) =>
+	({ type: SET_STEPS, steps: steps })
+
+export const setCommentsActionCreator = (comments) =>
+	({ type: SET_COMMENTS, comments: comments })
 
 export default store;
 
