@@ -1,40 +1,56 @@
 import Recipe from './Recipe/Recipe';
+import React from "react";
 import s from './Recipes.module.css';
+import axios from "axios";
+import { setRecipesActionCreator } from '../../Data/state'
 
-const Recipes = () => {
+class Recipes extends React.Component {
 
-	let recipes = [
-		{ id: 1, link: '/current-recipe', title: "Мусс с семенами чиа", url: "/img/recipe-photo.jpg", readyTime: "6 ч 15 мин", complexity: "Просто", calories: "120,43 кКал", description: "Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика." },
-		{ id: 2, link: '/current-recipe', title: "Мусс с семенами чиа", url: "/img/recipe-photo.jpg", readyTime: "6 ч 15 мин", complexity: "Просто", calories: "120,43 кКал", description: "Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика." },
-		{ id: 3, link: '/current-recipe', title: "Мусс с семенами чиа", url: "/img/recipe-photo.jpg", readyTime: "6 ч 15 мин", complexity: "Просто", calories: "120,43 кКал", description: "Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика." },
-		{ id: 4, link: '/current-recipe', title: "Мусс с семенами чиа", url: "/img/recipe-photo.jpg", readyTime: "6 ч 15 мин", complexity: "Просто", calories: "120,43 кКал", description: "Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика." },
-		{ id: 5, link: '/current-recipe', title: "Мусс с семенами чиа", url: "/img/recipe-photo.jpg", readyTime: "6 ч 15 мин", complexity: "Просто", calories: "120,43 кКал", description: "Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика." },
-		{ id: 6, link: '/current-recipe', title: "Мусс с семенами чиа", url: "/img/recipe-photo.jpg", readyTime: "6 ч 15 мин", complexity: "Просто", calories: "120,43 кКал", description: "Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика." },
-		{ id: 7, link: '/current-recipe', title: "Мусс с семенами чиа", url: "/img/recipe-photo.jpg", readyTime: "6 ч 15 мин", complexity: "Просто", calories: "120,43 кКал", description: "Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика." },
-		{ id: 8, link: '/current-recipe', title: "Мусс с семенами чиа", url: "/img/recipe-photo.jpg", readyTime: "6 ч 15 мин", complexity: "Просто", calories: "120,43 кКал", description: "Мусс с семенами чиа — легкий и полезный десерт со свежими ягодами. Семена чиа нормализуют вес, помогают при диабете и болезнях сердца. В них много витаминов, минералов и других полезных веществ. Ягоды могут быть любые, например, малина, клубника или голубика." }
-	];
+	componentDidMount() {
+		axios.get("https://dish-craft.onrender.com/recipes")
+			.then(response => {
+				let recipes = response.data.content;
+				let promises = [];
 
-	let recipesElements = recipes.map(r => <Recipe link={r.link} title={r.title} url={r.url} readyTime={r.readyTime} complexity={r.complexity} calories={r.calories} description={r.description} key={r.id} />);
+				recipes.forEach(recipe => {
+					let promise = axios.get("https://dish-craft.onrender.com/recipes/" + recipe.recipeId + "/nutritional_value")
+						.then(response => {
+							recipe.calories = response.data.calories;
+						});
+					promises.push(promise);
+				});
 
-	return (
-		<div className={s.content}>
-			<div className={s.title}>Рецепты</div>
+				debugger;
+				Promise.all(promises)
+					.then(() => {
+						this.props.dispatch(setRecipesActionCreator(recipes))
+					});
+					debugger;
+			});
+			debugger;
+	}
 
-			<div className={s.toggleBtnBlock}>
-				<div className={s.switch}>
-					<input type="checkbox" id="toggle" className={s.toggleInput} />
-					<label htmlFor="toggle" className={s.toggleLabel}>
-						<span className={s.leftLabel}>Новое</span>
-						<span className={s.rightLabel}>Популярное</span>
-					</label>
+	render() {
+		return (
+			<div className={s.content}>
+				<div className={s.title}>Рецепты</div>
+
+				<div className={s.toggleBtnBlock}>
+					<div className={s.switch}>
+						<input type="checkbox" id="toggle" className={s.toggleInput} />
+						<label htmlFor="toggle" className={s.toggleLabel}>
+							<span className={s.leftLabel}>Новое</span>
+							<span className={s.rightLabel}>Популярное</span>
+						</label>
+					</div>
+				</div>
+
+				<div className={s.recipes}>
+					{this.props.recipesPage.recipes.map(r => <Recipe dispatch={this.props.dispatch} link='/current-recipe' title={r.recipeName} url={"https://dish-craft.onrender.com/recipes/" + r.recipeId + "/image"} readyTime={r.readyTimeMinutes + ' мин'} complexity={r.complexity.complexityName} calories={r.calories + ' кКал'} description={r.description} recipeId={r.recipeId} key={r.recipeId} />)}
 				</div>
 			</div>
-
-			<div className={s.recipes}>
-				{recipesElements}
-			</div>
-		</div>
-	);
+		);
+	}
 }
 
 export default Recipes;

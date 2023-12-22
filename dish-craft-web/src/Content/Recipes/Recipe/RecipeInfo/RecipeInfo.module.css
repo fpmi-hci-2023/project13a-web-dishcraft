@@ -1,6 +1,8 @@
 .recipeInfo {
 	padding: 10px 5px;
 
+	overflow: hidden; 
+
 	border: solid 3px #A7BC40;
 	border-left: none;
 }
@@ -20,6 +22,10 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	row-gap: 5px;
+}
+
+.description-wrapper {
+	display: flex;
 }
 
 .description {

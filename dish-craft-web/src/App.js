@@ -5,16 +5,16 @@ import RecipePage from './Content/RecipePage/RecipePage';
 import Content from './Content/Content';
 import Auth from './Auth/Auth';
 
-const App = () => {
+const App = (props) => {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path='/auth' element={<Auth />} />
 
 				<Route path='/' element={<Content />} >
-					<Route path='/' element={<Recipes />} />
-					<Route path='/recipes' element={<Recipes />} />
-					<Route path='/current-recipe' element={<RecipePage />} />
+					<Route path='/' element={<Recipes recipesPage={props.state.recipesPage} dispatch={props.dispatch} />} />
+					<Route path='/recipes' element={<Recipes recipesPage={props.state.recipesPage} dispatch={props.dispatch} />} />
+					<Route path='/current-recipe' element={<RecipePage currentRecipePage={props.state.currentRecipePage} dispatch={props.dispatch} />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
