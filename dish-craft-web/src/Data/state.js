@@ -12,7 +12,34 @@ let store = {
 
 		currentRecipePage: {
 			currentRecipeId: -1,
-			currentRecipe: {}
+			currentRecipe: {
+				"recipeId": 0,
+				"recipeName": "",
+				"description": "",
+				"image": {},
+				"cookingTimeMinutes": 0,
+				"readyTimeMinutes": 0,
+				"complexity": {
+					"complexityId": 0,
+					"complexityName": ""
+				},
+				"defaultPortionsNumber": 0,
+				"user": {
+					"id": 0,
+					"username": "",
+					"email": "",
+					"roles": [
+						{
+							"id": 0,
+							"name": "USER"
+						}
+					]
+				},
+				"rating": {
+					value: 0,
+					numRatings: 0
+				}
+			}
 		}
 
 	},

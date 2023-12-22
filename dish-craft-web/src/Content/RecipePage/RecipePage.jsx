@@ -1,12 +1,13 @@
 import s from './RecipePage.module.css';
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 import RPCaloriesBlock from './RPCaloriesBlock/RPCaloriesBlock';
 import RPCommentsBlock from './RPCommentsBlock/RPCommentsBlock';
 import RPFeedback from './RPFeedback/RPFeedback';
 import RPIngredients from './RPIngredients/RPIngredients';
 import RPPhotoRecipe from './RPPhotoRecipe/RPPhotoRecipe';
 import RPRecipePhotoInfo from './RPRecipePhotoInfo/RPRecipePhotoInfo';
+import { setCurrentRecipeActionCreator } from '../../Data/state'
 
 class RecipePage extends React.Component {
 
@@ -55,27 +56,30 @@ class RecipePage extends React.Component {
 	componentDidMount() {
 		debugger;
 		console.log(this.props);
-		if (this.props.currentRecipePage.currentRecipeId != -1) {
+		if (this.props.currentRecipePage.currentRecipeId !== -1) {
 			axios.get("https://dish-craft.onrender.com/recipes/" + this.props.currentRecipePage.currentRecipeId)
 				.then(response => {
-					console.log(response);
-					let recipe = response.data.content;
+					let recipe = response.data;
 
+					recipe.rating = {}
 
-					// let promises = [];
+					let promises = [];
+					let promiseRatingValue = axios.get("https://dish-craft.onrender.com/recipes/" + recipe.recipeId + "/ratings/total")
+						.then(response => {
+							recipe.rating.value = response.data;
+						});
+					promises.push(promiseRatingValue);
 
-					// recipes.forEach(recipe => {
-					// 	let promise = axios.get("https://dish-craft.onrender.com/recipes/" + recipe.recipeId + "/nutritional_value")
-					// 		.then(response => {
-					// 			recipe.calories = response.data.calories;
-					// 		});
-					// 	promises.push(promise);
-					// });
+					let promiseNumRatings = axios.get("https://dish-craft.onrender.com/recipes/" + recipe.recipeId + "/ratings")
+						.then(response => {
+							recipe.rating.numRatings = response.data.length;
+						});
+					promises.push(promiseNumRatings);
 
-					// Promise.all(promises)
-					// 	.then(() => {
-					// 		this.props.dispatch(setRecipesActionCreator(recipes))
-					// 	});
+					Promise.all(promises)
+						.then(() => {
+							this.props.dispatch(setCurrentRecipeActionCreator(recipe));
+						});
 				});
 		}
 	}
@@ -83,8 +87,15 @@ class RecipePage extends React.Component {
 	render() {
 		return (
 			<div className={s.content}>
-				{/* <RPRecipePhotoInfo dishName='Мусс с семенами чиа' description={description} recipePhotoUrl='/img/recipe-photo.jpg' readyTime='6 ч 15 мин' cookingTime='15 мин' complexity='Просто' author={author} rating={rating} />
-				<RPCaloriesBlock attributes={attributes} />
+				<RPRecipePhotoInfo dishName={this.props.currentRecipePage.currentRecipe.recipeName}
+					description={this.props.currentRecipePage.currentRecipe.description}
+					recipePhotoUrl={"https://dish-craft.onrender.com/recipes/" + this.props.currentRecipePage.currentRecipe.recipeId + "/image"}
+					readyTime={this.props.currentRecipePage.currentRecipe.readyTimeMinutes + ' мин'}
+					cookingTime={this.props.currentRecipePage.currentRecipe.cookingTimeMinutes + ' мин'}
+					complexity={this.props.currentRecipePage.currentRecipe.complexity.complexityName}
+					author={{ name: this.props.currentRecipePage.currentRecipe.user.username, photo: '/img/user.jpg' }}
+					rating={{ value: this.props.currentRecipePage.currentRecipe.rating.value, numRatings: this.props.currentRecipePage.currentRecipe.rating.numRatings }} />
+				{/* <RPCaloriesBlock attributes={attributes} />
 				<RPIngredients numPortions='2' ingredients={ingredients} />
 				<RPPhotoRecipe steps={steps} />
 				<RPFeedback ratingValue='5' numRatings='3' />

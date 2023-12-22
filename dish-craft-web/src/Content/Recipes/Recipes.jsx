@@ -1,7 +1,7 @@
 import Recipe from './Recipe/Recipe';
-import React from "react";
+import React from 'react';
 import s from './Recipes.module.css';
-import axios from "axios";
+import axios from 'axios';
 import { setRecipesActionCreator } from '../../Data/state'
 
 class Recipes extends React.Component {
@@ -25,9 +25,9 @@ class Recipes extends React.Component {
 					.then(() => {
 						this.props.dispatch(setRecipesActionCreator(recipes))
 					});
-					debugger;
+				debugger;
 			});
-			debugger;
+		debugger;
 	}
 
 	render() {
@@ -46,7 +46,17 @@ class Recipes extends React.Component {
 				</div>
 
 				<div className={s.recipes}>
-					{this.props.recipesPage.recipes.map(r => <Recipe dispatch={this.props.dispatch} link='/current-recipe' title={r.recipeName} url={"https://dish-craft.onrender.com/recipes/" + r.recipeId + "/image"} readyTime={r.readyTimeMinutes + ' мин'} complexity={r.complexity.complexityName} calories={r.calories + ' кКал'} description={r.description} recipeId={r.recipeId} key={r.recipeId} />)}
+					{this.props.recipesPage.recipes.map(r =>
+						<Recipe dispatch={this.props.dispatch}
+							link='/current-recipe'
+							title={r.recipeName}
+							url={"https://dish-craft.onrender.com/recipes/" + r.recipeId + "/image"}
+							readyTime={r.readyTimeMinutes + ' мин'}
+							complexity={r.complexity.complexityName}
+							calories={r.calories + ' кКал'}
+							description={r.description}
+							recipeId={r.recipeId}
+							key={r.recipeId} />)}
 				</div>
 			</div>
 		);
