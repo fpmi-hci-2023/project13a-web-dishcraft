@@ -9,5 +9,8 @@
 # Deployment 
 [DishCraft Web Application](https://project13a-web-dishcraft.vercel.app/)
 
+# Основной репозиторий проекта
+[project13a-dishcraft](https://github.com/fpmi-hci-2023/project13a-dishcraft/tree/main)
+
 # Contribution
 **Авторы проекта:** Быстрова Вероника, Иванова Мария, Шинкевич Дарья  
