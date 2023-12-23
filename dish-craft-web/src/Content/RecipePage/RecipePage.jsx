@@ -76,7 +76,7 @@ class RecipePage extends React.Component {
 				.then(response => {
 					let comments = response.data;
 
-					comments.map(c => {
+					comments.forEach(c => {
 						c.authorPhotoUrl = '/img/user.jpg';
 
 						const date = new Date(c.commentDate);
