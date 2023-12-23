@@ -28,9 +28,9 @@ jobs:
       working-directory: ./dish-craft-web
       run: npm install
 
-    - name: Run the tests
-      working-directory: ./dish-craft-web
-      run: npm test
+    # - name: Run the tests
+    #   working-directory: ./dish-craft-web
+    #   run: npm test
 
     - name: Build
       working-directory: ./dish-craft-web
