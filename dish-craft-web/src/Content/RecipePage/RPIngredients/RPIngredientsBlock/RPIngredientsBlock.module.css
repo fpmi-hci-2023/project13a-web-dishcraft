@@ -1,0 +1,13 @@
+.block {
+	margin-top: 15px;
+	padding: 10px;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	column-gap: 40px;
+
+	border: solid 3px #D79D5A;
+	border-radius: 15px;
+
+	justify-content: center;
+}

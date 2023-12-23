@@ -1,0 +1,17 @@
+.link {
+	text-decoration: none;
+}
+
+.recipeBlock {
+	display: grid;
+	grid-template-columns: 4fr 3fr;
+	grid-template-rows: 250px;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
